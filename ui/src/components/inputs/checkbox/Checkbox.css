@@ -1,0 +1,30 @@
+.hoverArea {
+    height: 35px;
+    width: 35px;
+    background: #AFC6BD;
+    border-radius: 50%;
+    display: inline-block;
+    grid-area: 1 / 1;
+    opacity: 0.5;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+input[type="checkbox"]:hover+.hoverArea {
+    visibility: visible;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: #3B755F;
+}
+
+.checkBoxContainer {
+    display: grid;
+}
+
+.checkBox {
+    grid-area: 1 / 1;
+    width: 18px;
+    height: 18px;
+    margin: auto;
+}

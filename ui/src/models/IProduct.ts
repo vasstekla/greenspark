@@ -1,9 +1,9 @@
 export interface IProduct {
     id: number;
     type: string;
-    amount: string;
+    amount: number;
     action: string;
-    active: string;
+    active: boolean;
     linked: boolean;
     selectedColor: string;
 }

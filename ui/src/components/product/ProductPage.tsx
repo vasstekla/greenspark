@@ -1,8 +1,9 @@
+import { IProduct } from '../../models/IProduct'
 import ProductCard from './ProductCard'
 import './ProductPage.css'
 
 export default function ProductPage() {
-    const products = [
+    const products: IProduct[] = [
         {
             "id": 1,
             "type": "plastic bottles",
@@ -37,7 +38,7 @@ export default function ProductPage() {
             <h3 className='title'>Per product widgets</h3>
             <div className='productContainer'>
                 {products.map(product =>
-                    <ProductCard className='productCard' key={product.id} {...product} />
+                    <ProductCard {...product} key={product.id} />
                 )}
             </div>
         </>

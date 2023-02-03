@@ -2,10 +2,13 @@ import { colorCode, colors } from '../../utils/ColorCode'
 import { ReactComponent as Logo } from '../../data/logo.svg';
 import './ProductCard.css'
 import Tooltip from '../tooltip/Tooltip';
+import Checkbox from '../inputs/checkbox/Checkbox';
+import { IProduct } from '../../models/IProduct';
 
-export default function ProductCard(product: any) {
+export default function ProductCard(product: IProduct) {
 
     const textColor = product.selectedColor === 'beige' || product.selectedColor === 'white' ? '#3B755F' : '#F9F9F9'
+
     return (
         <div className='container'>
             <div className='header' style={{ backgroundColor: colorCode[product.selectedColor] }}>
@@ -21,7 +24,7 @@ export default function ProductCard(product: any) {
                     actionText='View Public Profile'
                     actionLink='https://www.getgreenspark.com/' />
                 </p>
-                <input type="checkbox" name="myCheckbox" />
+                <Checkbox />
             </div>
             <div className='details'>
                 <p>Badge colour</p>
