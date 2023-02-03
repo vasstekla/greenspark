@@ -1,4 +1,4 @@
-import ProductItem from '../productItem/ProductItem'
+import ProductCard from './ProductCard'
 import './ProductPage.css'
 
 export default function ProductPage() {
@@ -37,7 +37,7 @@ export default function ProductPage() {
             <h3 className='title'>Per product widgets</h3>
             <div className='productContainer'>
                 {products.map(product =>
-                    <ProductItem className='productItem' key={product.id} {...product} />
+                    <ProductCard className='productCard' key={product.id} {...product} />
                 )}
             </div>
         </>

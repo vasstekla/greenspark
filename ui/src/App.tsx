@@ -1,5 +1,5 @@
 import './App.css';
-import ProductPage from './components/productPage/ProductPage';
+import ProductPage from './components/product/ProductPage';
 import "@fontsource/cabin"
 
 function App() {
