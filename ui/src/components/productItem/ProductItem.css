@@ -1,0 +1,12 @@
+.header {
+    border-radius: 5.95489px;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+}
+
+.productCard {
+    min-width: 221.32px;
+}
