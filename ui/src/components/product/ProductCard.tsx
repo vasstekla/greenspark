@@ -31,7 +31,7 @@ export default function ProductCard(product: IProduct) {
                 <p>Badge colour</p>
                 <div>
                     {colors.map(color => (
-                        <RadioButton key={color} backgroundColor={color} />
+                        <RadioButton key={color} backgroundColor={color} name={product.id + 'colour'} />
                     ))}
                 </div>
             </div>

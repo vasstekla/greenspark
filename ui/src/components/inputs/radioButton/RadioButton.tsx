@@ -2,6 +2,7 @@ import './RadioButton.css'
 
 export interface IRadioButtonProps {
     backgroundColor: string;
+    name: string
 }
 
 export default function RadioButton(props: IRadioButtonProps) {
@@ -10,6 +11,6 @@ export default function RadioButton(props: IRadioButtonProps) {
             backgroundColor: props.backgroundColor
         }}
             type="radio"
-            name="colour" />
+            name={props.name} />
     )
 }
