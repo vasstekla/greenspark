@@ -4,6 +4,7 @@ import './ProductCard.css'
 import Tooltip from '../tooltip/Tooltip';
 import Checkbox from '../inputs/checkbox/Checkbox';
 import { IProduct } from '../../models/IProduct';
+import RadioButton from '../inputs/radioButton/RadioButton';
 
 export default function ProductCard(product: IProduct) {
 
@@ -28,10 +29,11 @@ export default function ProductCard(product: IProduct) {
             </div>
             <div className='details'>
                 <p>Badge colour</p>
-                {colors.map(color => (
-                    <input type="radio" name="myRadio" value={color} key={color} style={{ backgroundColor: color }} />
-
-                ))}
+                <div>
+                    {colors.map(color => (
+                        <RadioButton key={color} backgroundColor={color} />
+                    ))}
+                </div>
             </div>
             <div className='details'>
                 <p>Active badge</p>

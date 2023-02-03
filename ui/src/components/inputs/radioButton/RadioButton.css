@@ -1,0 +1,14 @@
+input[type=radio] {
+    border: 3.1875px solid transparent;
+    width: 16px;
+    height: 16px;
+    appearance: none;
+}
+
+input[type=radio]:checked {
+    border: 3.1875px solid #B0B0B0;
+}
+
+input[type=radio]:hover {
+    opacity: 0.5;
+}
