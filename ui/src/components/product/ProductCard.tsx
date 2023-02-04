@@ -5,6 +5,7 @@ import Tooltip from '../tooltip/Tooltip';
 import Checkbox from '../inputs/checkbox/Checkbox';
 import { IProduct } from '../../models/IProduct';
 import RadioButton from '../inputs/radioButton/RadioButton';
+import ToggleSwitch from '../inputs/toggleSwitch/ToggleSwitch';
 
 export default function ProductCard(product: IProduct) {
 
@@ -20,11 +21,11 @@ export default function ProductCard(product: IProduct) {
                 </div>
             </div >
             <div className='details'>
-                <p>Link to Public Profile<Tooltip
+                <div>Link to Public Profile<Tooltip
                     text='This widget links directly to your public profile so that you can easily share your impact with your customers. Turn it off here if you do not want the badge to link to it.'
                     actionText='View Public Profile'
                     actionLink='https://www.getgreenspark.com/' />
-                </p>
+                </div>
                 <Checkbox />
             </div>
             <div className='details'>
@@ -37,10 +38,7 @@ export default function ProductCard(product: IProduct) {
             </div>
             <div className='details'>
                 <p>Active badge</p>
-                <label className="switch">
-                    <input type="checkbox" />
-                    <span className="slider round"></span>
-                </label>
+                <ToggleSwitch />
             </div>
         </div>
     )
