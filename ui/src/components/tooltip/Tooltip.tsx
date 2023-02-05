@@ -1,7 +1,7 @@
 import { ReactComponent as TooltipIcon } from '../../data/tooltip.svg';
 import './Tooltip.css'
 
-export interface ITooltipProps {
+interface ITooltipProps {
     text: string;
     actionText?: string;
     actionLink?: string;

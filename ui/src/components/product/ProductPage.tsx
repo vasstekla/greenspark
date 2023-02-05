@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import { IProduct } from '../../models/IProduct'
 import ProductCard from './ProductCard'
 import './ProductPage.css'
 
 export default function ProductPage() {
-    const products: IProduct[] = [
+    const [products, setProducts] = useState([
         {
             "id": 1,
             "type": "plastic bottles",
@@ -31,14 +32,14 @@ export default function ProductPage() {
             "linked": false,
             "selectedColor": "beige"
         }
-    ]
+    ])
 
     return (
         <>
             <h3 className='title'>Per product widgets</h3>
             <div className='productContainer'>
                 {products.map(product =>
-                    <ProductCard {...product} key={product.id} />
+                    <ProductCard key={product.id} product={product} />
                 )}
             </div>
         </>

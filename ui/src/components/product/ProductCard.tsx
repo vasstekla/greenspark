@@ -6,10 +6,38 @@ import Checkbox from '../inputs/checkbox/Checkbox';
 import { IProduct } from '../../models/IProduct';
 import RadioButton from '../inputs/radioButton/RadioButton';
 import ToggleSwitch from '../inputs/toggleSwitch/ToggleSwitch';
+import { useState } from 'react';
 
-export default function ProductCard(product: IProduct) {
+interface IProductCardProps {
+    product: IProduct;
+}
+
+export default function ProductCard(props: IProductCardProps) {
+
+    const [product, setProduct] = useState(props.product)
 
     const textColor = product.selectedColor === 'beige' || product.selectedColor === 'white' ? '#3B755F' : '#F9F9F9'
+
+    let updateColor = (newSelectedColor: string) => {
+        setProduct(p => ({
+            ...p,
+            'selectedColor': newSelectedColor
+        }))
+    }
+
+    let updateLinked = (linked: boolean) => {
+        setProduct(p => ({
+            ...p,
+            'linked': linked
+        }))
+    }
+
+    let updateActive = (active: boolean) => {
+        setProduct(p => ({
+            ...p,
+            'active': active
+        }))
+    }
 
     return (
         <div className='container'>
@@ -26,20 +54,22 @@ export default function ProductCard(product: IProduct) {
                     actionText='View Public Profile'
                     actionLink='https://www.getgreenspark.com/' />
                 </div>
-                <Checkbox />
+                <Checkbox onChange={updateLinked} value={product.linked} />
             </div>
             <div className='details'>
                 <p>Badge colour</p>
                 <div>
                     {colors.map(color => (
-                        <RadioButton key={color} backgroundColor={color} name={product.id + 'colour'} />
+                        <RadioButton key={color} backgroundColor={color} selectedColor={product.selectedColor} name={product.id + 'colour'} onChange={updateColor} />
                     ))}
                 </div>
             </div>
             <div className='details'>
                 <p>Active badge</p>
-                <ToggleSwitch />
+                <ToggleSwitch onChange={updateActive} value={product.active} />
             </div>
+            {product.linked.toString()}<br />
+            {product.active.toString()}
         </div>
     )
 }

@@ -1,9 +1,15 @@
 import './Checkbox.css'
 
-export default function Checkbox() {
+interface ICheckboxProps {
+    value: boolean;
+    onChange: Function
+}
+
+
+export default function Checkbox(props: ICheckboxProps) {
     return (
         <div className="checkBoxContainer">
-            <input className='checkBox' type="checkbox" />
+            <input className='checkBox' type="checkbox" checked={props.value} onChange={() => { props.onChange(!props.value) }} />
             <span className='hoverArea' />
         </div>
     )
