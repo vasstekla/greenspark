@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react'
-import { IProduct } from '../../models/IProduct'
-import { getAllProducts } from '../../service/productService'
-import ProductCard from './ProductCard'
-import './ProductPage.css'
+import { useEffect, useState } from 'react';
+import { IProduct } from '../../models/IProduct';
+import { getAllProducts } from '../../service/productService';
+import ProductCard from './ProductCard';
+import './ProductPage.css';
 
 export default function ProductPage() {
-    const [products, setProducts] = useState<IProduct[]>([])
+    const [products, setProducts] = useState<IProduct[]>([]);
 
     useEffect(() => {
         getAllProducts().then(res => {
             const products: IProduct[] = res.data.products;
             setProducts(products.reverse());
-        })
-    }, [])
+        });
+    }, []);
 
     return (
         <div>
@@ -23,5 +23,5 @@ export default function ProductPage() {
                 )}
             </div>
         </div>
-    )
+    );
 }

@@ -1,4 +1,4 @@
-import './RadioButton.css'
+import './RadioButton.css';
 
 interface IRadioButtonProps {
     backgroundColor: string;
@@ -16,6 +16,6 @@ export default function RadioButton(props: IRadioButtonProps) {
             name={props.name}
             value={props.backgroundColor}
             checked={props.backgroundColor === props.selectedColor}
-            onChange={(e) => { props.onChange(e.target.value) }} />
-    )
+            onChange={(e) => { props.onChange(e.target.value); }} />
+    );
 }

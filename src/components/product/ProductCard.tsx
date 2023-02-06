@@ -1,13 +1,12 @@
-import { colorCode, colors } from '../../utils/ColorCode'
-import { ReactComponent as Logo } from '../../data/logo.svg';
-import './ProductCard.css'
+import { colorCode, colors } from '../../utils/ColorCode';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
+import './ProductCard.css';
 import Tooltip from '../tooltip/Tooltip';
 import Checkbox from '../inputs/checkbox/Checkbox';
 import { IProduct } from '../../models/IProduct';
 import RadioButton from '../inputs/radioButton/RadioButton';
 import ToggleSwitch from '../inputs/toggleSwitch/ToggleSwitch';
 import { useState } from 'react';
-import axios from 'axios';
 import { updateProduct } from '../../service/productService';
 
 interface IProductCardProps {
@@ -16,29 +15,29 @@ interface IProductCardProps {
 
 export default function ProductCard(props: IProductCardProps) {
 
-    const [product, setProduct] = useState(props.product)
+    const [product, setProduct] = useState(props.product);
 
-    const textColor = product.selectedColor === 'beige' || product.selectedColor === 'white' ? '#3B755F' : '#F9F9F9'
+    const textColor = product.selectedColor === 'beige' || product.selectedColor === 'white' ? '#3B755F' : '#F9F9F9';
 
     let updateProd = (product: IProduct) => {
         updateProduct(product)
             .then(res => {
                 const product: IProduct = res.data.product;
-                setProduct(product)
-            })
-    }
+                setProduct(product);
+            });
+    };
 
     let updateColor = (selectedColor: string) => {
-        updateProd({ ...product, selectedColor: selectedColor })
-    }
+        updateProd({ ...product, selectedColor });
+    };
 
     let updateLinked = (linked: boolean) => {
-        updateProd({ ...product, linked: linked })
-    }
+        updateProd({ ...product, linked });
+    };
 
     let updateActive = (active: boolean) => {
-        updateProd({ ...product, active: active })
-    }
+        updateProd({ ...product, active });
+    };
 
     return (
         <div className='container'>
@@ -71,5 +70,5 @@ export default function ProductCard(props: IProductCardProps) {
                 <ToggleSwitch onChange={updateActive} value={product.active} />
             </div>
         </div>
-    )
+    );
 }

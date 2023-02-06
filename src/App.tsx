@@ -1,6 +1,6 @@
 import './App.css';
 import ProductPage from './components/product/ProductPage';
-import "@fontsource/cabin"
+import "@fontsource/cabin";
 
 function App() {
   return (

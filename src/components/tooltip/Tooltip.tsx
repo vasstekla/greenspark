@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { ReactComponent as TooltipIcon } from '../../data/tooltip.svg';
-import './Tooltip.css'
+import { ReactComponent as TooltipIcon } from '../../assets/tooltip.svg';
+import './Tooltip.css';
 
 interface ITooltipProps {
     text: string;
-    actionText?: string;
-    actionLink?: string;
+    actionText: string;
+    actionLink: string;
 }
 
 export default function Tooltip(props: ITooltipProps) {
@@ -14,8 +14,8 @@ export default function Tooltip(props: ITooltipProps) {
     let handleMouseLeave = () => {
         setTimeout(() => {
             setIsShown(false);
-        }, 250)
-    }
+        }, 250);
+    };
 
     return (
         <div className="tooltip"
@@ -24,8 +24,8 @@ export default function Tooltip(props: ITooltipProps) {
             <TooltipIcon />
             {isShown && <span className="tooltiptext">
                 <p className="text">{props.text}</p>
-                <a href={props.actionLink} target='_blank'>{props.actionText}</a>
+                <a href={props.actionLink} rel="noopener noreferrer" target='_blank'>{props.actionText}</a>
             </span>}
         </div>
-    )
+    );
 }

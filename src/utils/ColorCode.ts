@@ -1,4 +1,4 @@
-export const colorCode: { [key: string]: string } = {
+export const colorCode: { [key: string]: string; } = {
     'blue': '#2E3A8C',
     'green': '#3B755F',
     'beige': '#F2EBDB',
@@ -6,4 +6,4 @@ export const colorCode: { [key: string]: string } = {
     'black': '#212121'
 };
 
-export const colors = ['blue', 'green', 'beige', 'white', 'black']
+export const colors = ['blue', 'green', 'beige', 'white', 'black'];
