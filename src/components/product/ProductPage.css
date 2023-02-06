@@ -12,7 +12,8 @@
     align-items: flex-start;
     gap: 37px;
     flex-wrap: wrap;
-    padding: 36px;
+    padding-top: 20px;
+    padding-bottom: 139px;
 }
 
 @media (pointer:none),
