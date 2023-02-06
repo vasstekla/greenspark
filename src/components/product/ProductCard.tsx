@@ -8,6 +8,7 @@ import RadioButton from '../inputs/radioButton/RadioButton';
 import ToggleSwitch from '../inputs/toggleSwitch/ToggleSwitch';
 import { useState } from 'react';
 import axios from 'axios';
+import { updateProduct } from '../../service/productService';
 
 interface IProductCardProps {
     product: IProduct;
@@ -19,28 +20,24 @@ export default function ProductCard(props: IProductCardProps) {
 
     const textColor = product.selectedColor === 'beige' || product.selectedColor === 'white' ? '#3B755F' : '#F9F9F9'
 
-    let updateColor = (newSelectedColor: string) => {
-        axios.put(`http://localhost:3001/product/${product._id}`, { ...product, selectedColor: newSelectedColor })
+    let updateProd = (product: IProduct) => {
+        updateProduct(product)
             .then(res => {
                 const product: IProduct = res.data.product;
                 setProduct(product)
             })
+    }
+
+    let updateColor = (selectedColor: string) => {
+        updateProd({ ...product, selectedColor: selectedColor })
     }
 
     let updateLinked = (linked: boolean) => {
-        axios.put(`http://localhost:3001/product/${product._id}`, { ...product, linked: linked })
-            .then(res => {
-                const product: IProduct = res.data.product;
-                setProduct(product)
-            })
+        updateProd({ ...product, linked: linked })
     }
 
     let updateActive = (active: boolean) => {
-        axios.put(`http://localhost:3001/product/${product._id}`, { ...product, active: active })
-            .then(res => {
-                const product: IProduct = res.data.product;
-                setProduct(product)
-            })
+        updateProd({ ...product, active: active })
     }
 
     return (
@@ -52,11 +49,12 @@ export default function ProductCard(props: IProductCardProps) {
                     <p style={{ fontSize: '17.8647px' }}>{product.amount} {product.type}</p>
                 </div>
             </div >
-            <div className='details' style={{ zIndex: 0 }}>
-                <div>Link to Public Profile<Tooltip
-                    text='This widget links directly to your public profile so that you can easily share your impact with your customers. Turn it off here if you do not want the badge to link to it.'
-                    actionText='View Public Profile'
-                    actionLink='https://www.getgreenspark.com/' />
+            <div className='details'>
+                <div>Link to Public Profile
+                    <Tooltip
+                        text='This widget links directly to your public profile so that you can easily share your impact with your customers. Turn it off here if you do not want the badge to link to it.'
+                        actionText='View Public Profile'
+                        actionLink='https://www.getgreenspark.com/' />
                 </div>
                 <Checkbox onChange={updateLinked} value={product.linked} />
             </div>

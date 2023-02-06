@@ -1,17 +1,23 @@
 .title {
     font-size: 30px;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 
 .productContainer {
     border-top: 3px solid #B0B0B0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row-reverse;
+    justify-content: center;
     align-items: flex-start;
-    padding-top: 20px;
     gap: 37px;
     flex-wrap: wrap;
-    width: 100%;
+    padding: 36px;
+}
+
+@media (pointer:none),
+(pointer:coarse) {
+    .productContainer {
+        flex-direction: column-reverse;
+    }
 }

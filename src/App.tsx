@@ -4,8 +4,10 @@ import "@fontsource/cabin"
 
 function App() {
   return (
-    <div className="App">
-      <ProductPage />
+    <div className='root'>
+      <div className="App">
+        <ProductPage />
+      </div>
     </div>
   );
 }
